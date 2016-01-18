@@ -10,7 +10,7 @@ public interface IRepository {
 	
 	public String getLocation();
 	
-	public void setLocation(String location);
+	public void setLocation(String location) throws RepositoryException;
 	
 	public String getType();
 	
