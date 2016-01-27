@@ -3,8 +3,8 @@ package repository;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import utils.Cache;
-import utils.Utils;
+import rutils.Cache;
+import rutils.Utils;
 import configurators.IConfigurator;
 import descriptors.IToolDescriptor;
 import exceptions.RepositoryException;
