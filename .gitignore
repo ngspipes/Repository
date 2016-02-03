@@ -4,3 +4,4 @@ NGSPipesRepository/bin/
 *.class
 .gradle
 build/
+*.iml
