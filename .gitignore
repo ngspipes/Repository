@@ -5,3 +5,4 @@ NGSPipesRepository/bin/
 .gradle
 build/
 *.iml
+.idea/
