@@ -19,7 +19,7 @@
  */
 package descriptors;
 
-import rutils.Utils;
+import utils.Utils;
 
 
 public class OutputDescriptor implements IOutputDescriptor{
