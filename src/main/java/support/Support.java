@@ -33,7 +33,7 @@ import exceptions.DescriptorException;
 
 public class Support {
 	
-	public static final List<String> SUPPORTED_TYPES = new LinkedList<>();;
+	public static final List<String> SUPPORTED_TYPES = new LinkedList<>();
 	public static final String JSON_TYPE= "json";
 	public static final String XML_TYPE= "xml";
 	
@@ -52,8 +52,8 @@ public class Support {
 	
 	//CONFIGURATORS
 	@FunctionalInterface
-	private static interface ConfiguratorFactory{
-		public IConfigurator create(String content) throws ConfiguratorException;
+	private interface ConfiguratorFactory{
+		IConfigurator create(String content) throws ConfiguratorException;
 	}
 	
 	private static void loadConfiguratorFactories(){
@@ -69,8 +69,8 @@ public class Support {
 	
 	//TOOL DESCRIPTORS
 	@FunctionalInterface
-	public static interface ToolDescriptorFactory{
-		public IToolDescriptor create(String content) throws DescriptorException;
+	public interface ToolDescriptorFactory{
+		IToolDescriptor create(String content) throws DescriptorException;
 	}
 
 	private static void loadToolDescriptorFactories(){

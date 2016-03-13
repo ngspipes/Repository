@@ -40,8 +40,8 @@ import exceptions.RepositoryException;
 public class UriBasedRepository extends Repository {
 
 	@FunctionalInterface
-	public static interface IFactory<T> {
-		public T getObj(String type, String Content) throws Exception;
+	public interface IFactory<T> {
+		T getObj(String type, String Content) throws Exception;
 	}
 
 	

@@ -21,18 +21,18 @@ package descriptors;
 
 public interface IArgumentDescriptor {
 	
-	public ICommandDescriptor getOriginCommand();
+	ICommandDescriptor getOriginCommand();
 	
-	public void setOriginCommand(ICommandDescriptor originCommand);
+	void setOriginCommand(ICommandDescriptor originCommand);
 	
-	public String getName();
+	String getName();
 	
-	public String getType();
+	String getType();
 	
-	public boolean getRequired();
+	boolean getRequired();
 
-	public String getDescription();
+	String getDescription();
 
-	public int getOrder();
+	int getOrder();
 	
 }

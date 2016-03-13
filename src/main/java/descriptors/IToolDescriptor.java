@@ -26,24 +26,24 @@ import repository.IRepository;
 
 public interface IToolDescriptor {
 
-public String getName();
+String getName();
 	
-	public IRepository getOriginRepository();
+	IRepository getOriginRepository();
 	
-	public void setOriginRepository(IRepository originRepository);
+	void setOriginRepository(IRepository originRepository);
 
-	public String getAuthor();
+	String getAuthor();
 	
-	public String getVersion();
+	String getVersion();
 	
-	public int getRequiredMemory();
+	int getRequiredMemory();
 	
-	public Collection<String> getDocumentaton();
+	Collection<String> getDocumentaton();
 	
-	public String getDescription();
+	String getDescription();
 	
-	public List<ICommandDescriptor> getCommands();
+	List<ICommandDescriptor> getCommands();
 	
-	public ICommandDescriptor getCommand(String commandName);
+	ICommandDescriptor getCommand(String commandName);
 	
 }

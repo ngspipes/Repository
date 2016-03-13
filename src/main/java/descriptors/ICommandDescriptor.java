@@ -23,26 +23,26 @@ import java.util.List;
 
 public interface ICommandDescriptor {
 	
-	public IToolDescriptor getOriginTool();
+	IToolDescriptor getOriginTool();
 	
-	public void setOriginTool(IToolDescriptor originTool);
+	void setOriginTool(IToolDescriptor originTool);
 	
-	public String getName();
+	String getName();
 	
-	public String getCommand();
+	String getCommand();
 	
-	public String getDescription();
+	String getDescription();
 	
-	public String getArgumentsComposer();
+	String getArgumentsComposer();
 	
-	public List<IArgumentDescriptor> getArguments();
+	List<IArgumentDescriptor> getArguments();
 	
-	public List<IOutputDescriptor> getOutputs();
+	List<IOutputDescriptor> getOutputs();
 	
-	public IArgumentDescriptor getArgument(String argumentName);
+	IArgumentDescriptor getArgument(String argumentName);
 	
-	public IOutputDescriptor getOutput(String outputName);
+	IOutputDescriptor getOutput(String outputName);
 	
-	public int getPriority();
+	int getPriority();
 	
 }

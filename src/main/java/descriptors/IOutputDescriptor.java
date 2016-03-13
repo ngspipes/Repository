@@ -21,18 +21,18 @@ package descriptors;
 
 public interface IOutputDescriptor {
 	
-	public ICommandDescriptor getOriginCommand();
+	ICommandDescriptor getOriginCommand();
 	
-	public void setOriginCommand(ICommandDescriptor originCommand); 
+	void setOriginCommand(ICommandDescriptor originCommand);
 	
-	public String getName();
+	String getName();
 	
-	public String getType();
+	String getType();
 	
-	public String getArgumentName();
+	String getArgumentName();
 
-	public String getValue();
+	String getValue();
 
-	public String getDescription();
+	String getDescription();
 	
 }

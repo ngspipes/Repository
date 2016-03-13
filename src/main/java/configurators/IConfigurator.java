@@ -25,16 +25,16 @@ import repository.IRepository;
 
 public interface IConfigurator {
 	
-	public IRepository getOriginRepository();
+	IRepository getOriginRepository();
 	
-	public void setOriginRepository(IRepository originRepository);
+	void setOriginRepository(IRepository originRepository);
 	
-	public String getName();
+	String getName();
 	
-	public String getBuilder();
+	String getBuilder();
 	
-	public String getUri();
+	String getUri();
 	
-	public List<String> getSetup();
+	List<String> getSetup();
 
 }
