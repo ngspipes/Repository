@@ -38,7 +38,7 @@ String getName();
 	
 	int getRequiredMemory();
 	
-	Collection<String> getDocumentaton();
+	Collection<String> getDocumentation();
 	
 	String getDescription();
 	

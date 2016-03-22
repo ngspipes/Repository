@@ -33,7 +33,7 @@ public class ConfiguratorManager {
 		try{
 			return new XMLConfigurator(content);
 		} catch (XMLException e) {
-			throw new ConfiguratorException("Error instanciating XMLConfigurator!", e);
+			throw new ConfiguratorException("Error instantiating XMLConfigurator!", e);
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class ConfiguratorManager {
 		try{
 			return new JSONConfigurator(content);
 		} catch (JSONException e) {
-			throw new ConfiguratorException("Error instanciating JSONConfigurator!", e);
+			throw new ConfiguratorException("Error instantiating JSONConfigurator!", e);
 		}
 	}
 

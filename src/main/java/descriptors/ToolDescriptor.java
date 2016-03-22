@@ -19,13 +19,13 @@
  */
 package descriptors;
 
+import repository.IRepository;
+import utils.Utils;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import repository.IRepository;
-import utils.Utils;
 
 public class ToolDescriptor implements IToolDescriptor {
 
@@ -79,7 +79,7 @@ public class ToolDescriptor implements IToolDescriptor {
 	}
 
 	@Override
-	public Collection<String> getDocumentaton() {
+	public Collection<String> getDocumentation() {
 		return  documentation;
 	}
 

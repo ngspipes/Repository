@@ -19,6 +19,15 @@
  */
 package repository;
 
+import configurators.IConfigurator;
+import descriptors.IToolDescriptor;
+import exceptions.RepositoryException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import support.Support;
+import utils.IO;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -26,16 +35,6 @@ import java.net.MalformedURLException;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import support.Support;
-import utils.IO;
-import configurators.IConfigurator;
-import descriptors.IToolDescriptor;
-import exceptions.RepositoryException;
 
 public class LocalRepository extends Repository {
 	
@@ -138,7 +137,7 @@ public class LocalRepository extends Repository {
            
         	return Support.getToolDescriptor(descriptorType, descriptorContent);	
     	}catch(Exception e){
-    		throw new RepositoryException("Erro loading tool " + toolName + "!", e);
+    		throw new RepositoryException("Error loading tool " + toolName + "!", e);
     	}
 	}
 	
@@ -172,7 +171,7 @@ public class LocalRepository extends Repository {
            
         	return Support.getConfigurator(configuratorType, configuratorContent);	
     	}catch(Exception e){
-    		throw new RepositoryException("Erro loading tool " + toolName + "!", e);
+    		throw new RepositoryException("Error loading tool " + toolName + "!", e);
     	}
 	}
 	
@@ -184,7 +183,7 @@ public class LocalRepository extends Repository {
 		File[] config = toolDir.listFiles(filter);
 		
 		if(config==null || config.length==0)
-			throw new RepositoryException("Inexistent configurator name " + configuratorName);
+			throw new RepositoryException("Nonexistent configurator name " + configuratorName);
 		
 		return config[0];
 	}

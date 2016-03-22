@@ -40,7 +40,7 @@ public class XMLObject extends XML {
 			xmlElem =  (Element) bldr.parse(insrc).getFirstChild();
 			
 		}catch(Exception e){
-			throw new XMLException("Error instanciating XMLObject", e);
+			throw new XMLException("Error instantiating XMLObject", e);
 		}
 	}
 	

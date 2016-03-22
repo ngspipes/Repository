@@ -19,13 +19,12 @@
  */
 package support.managers;
 
+import descriptors.IToolDescriptor;
+import exceptions.DescriptorException;
 import org.json.JSONException;
-
 import support.descriptors.json.JSONToolDescriptor;
 import support.descriptors.xml.XMLToolDescriptor;
 import support.descriptors.xml.xmlObject.XMLException;
-import descriptors.IToolDescriptor;
-import exceptions.DescriptorException;
 
 public class ToolDescriptorManager {
 	
@@ -33,7 +32,7 @@ public class ToolDescriptorManager {
 		try{
 			return new XMLToolDescriptor(content);
 		} catch (XMLException e) {
-			throw new DescriptorException("Error instanciating XMLToolDescriptor!", e);
+			throw new DescriptorException("Error instantiating XMLToolDescriptor!", e);
 		}
 	}
 	
@@ -41,7 +40,7 @@ public class ToolDescriptorManager {
 		try{
 			return new JSONToolDescriptor(content);
 		} catch (JSONException e) {
-			throw new DescriptorException("Error instanciating JSONToolDescriptor!", e);
+			throw new DescriptorException("Error instantiating JSONToolDescriptor!", e);
 		}
 	}
 
