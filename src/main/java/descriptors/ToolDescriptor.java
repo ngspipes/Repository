@@ -54,7 +54,7 @@ public class ToolDescriptor implements IToolDescriptor {
 		this.author = author;
 		this.documentation = documentation;
 		this.commandsDescriptors = commandsDescriptors;
-		this.cmds = new HashMap<String, ICommandDescriptor>();
+		this.cmds = new HashMap<>();
 		
 		for(ICommandDescriptor cmd : commandsDescriptors){
 			cmd.setOriginTool(this);

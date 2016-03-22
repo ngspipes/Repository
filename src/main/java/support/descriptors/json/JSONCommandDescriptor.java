@@ -19,16 +19,15 @@
  */
 package support.descriptors.json;
 
-import java.util.LinkedList;
-import java.util.List;
-
+import descriptors.CommandDescriptor;
+import descriptors.IArgumentDescriptor;
+import descriptors.IOutputDescriptor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import descriptors.CommandDescriptor;
-import descriptors.IArgumentDescriptor;
-import descriptors.IOutputDescriptor;
+import java.util.LinkedList;
+import java.util.List;
 
 public class JSONCommandDescriptor extends CommandDescriptor{
 
@@ -41,7 +40,7 @@ public class JSONCommandDescriptor extends CommandDescriptor{
 	private static final String PRIORITY_JSON_KEY = "priority";
 
 	private static List<IArgumentDescriptor> getArguments(JSONObject json) throws JSONException{
-		LinkedList<IArgumentDescriptor> arguments = new LinkedList<IArgumentDescriptor>();
+		LinkedList<IArgumentDescriptor> arguments = new LinkedList<>();
 		JSONArray args = json.getJSONArray(ARGUMENTS_JSON_KEY);
 
 		for(int i=0; i<args.length(); ++i)
@@ -51,7 +50,7 @@ public class JSONCommandDescriptor extends CommandDescriptor{
 	}
 
 	private static List<IOutputDescriptor> getOutputs(JSONObject json) throws JSONException{
-		LinkedList<IOutputDescriptor> outputs = new LinkedList<IOutputDescriptor>();
+		LinkedList<IOutputDescriptor> outputs = new LinkedList<>();
 		JSONArray otps = json.getJSONArray(OUTPUTS_JSON_KEY);
 
 		for(int i=0; i<otps.length(); ++i)

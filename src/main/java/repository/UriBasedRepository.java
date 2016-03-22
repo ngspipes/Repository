@@ -19,6 +19,14 @@
  */
 package repository;
 
+import configurators.IConfigurator;
+import descriptors.IToolDescriptor;
+import exceptions.RepositoryException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import support.Support;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,15 +35,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collection;
 import java.util.LinkedList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import support.Support;
-import configurators.IConfigurator;
-import descriptors.IToolDescriptor;
-import exceptions.RepositoryException;
 
 public class UriBasedRepository extends Repository {
 
@@ -73,7 +72,7 @@ public class UriBasedRepository extends Repository {
 
 	public static Collection<String> getStringCollection(String uri, String arrayKey) throws RepositoryException {
 
-		LinkedList<String> collection = new LinkedList<String>();
+		LinkedList<String> collection = new LinkedList<>();
 		try {
 			HttpURLConnection connection = getConnection(uri);
 			JSONObject json = new JSONObject(readStream(connection));

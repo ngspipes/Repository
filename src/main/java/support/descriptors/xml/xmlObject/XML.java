@@ -19,10 +19,10 @@
  */
 package support.descriptors.xml.xmlObject;
 
-import java.util.LinkedList;
-
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import java.util.LinkedList;
 
 public abstract class XML {
 	
@@ -68,7 +68,7 @@ public abstract class XML {
 	
 	protected XMLArray getXMLArray(Node node) throws XMLException{
 		try{
-			LinkedList<Node> childs = new LinkedList<Node>();
+			LinkedList<Node> childs = new LinkedList<>();
 			node = node.getFirstChild();
 	
 			if(node!=null){

@@ -19,14 +19,14 @@
  */
 package repository;
 
-import java.util.Collection;
-import java.util.LinkedList;
-
-import utils.Cache;
-import utils.Utils;
 import configurators.IConfigurator;
 import descriptors.IToolDescriptor;
 import exceptions.RepositoryException;
+import utils.Cache;
+import utils.Utils;
+
+import java.util.Collection;
+import java.util.LinkedList;
 
 public abstract class Repository implements IRepository {
 	
@@ -71,7 +71,7 @@ public abstract class Repository implements IRepository {
 	
 	@Override
 	public String getToolLogo(String toolName) {
-		String toolLogo = null;
+		String toolLogo;
 		
 		if((toolLogo=imagesCache.get(toolName))==null){
 			

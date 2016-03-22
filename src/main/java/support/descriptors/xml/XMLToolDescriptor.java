@@ -19,15 +19,15 @@
  */
 package support.descriptors.xml;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
+import descriptors.ICommandDescriptor;
+import descriptors.ToolDescriptor;
 import support.descriptors.xml.xmlObject.XMLArray;
 import support.descriptors.xml.xmlObject.XMLException;
 import support.descriptors.xml.xmlObject.XMLObject;
-import descriptors.ICommandDescriptor;
-import descriptors.ToolDescriptor;
+
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public class XMLToolDescriptor extends ToolDescriptor{
 
@@ -50,8 +50,8 @@ public class XMLToolDescriptor extends ToolDescriptor{
 		return commands;
 	}
 	
-	private static final Collection<String> getDocumentation(XMLObject xml) throws XMLException {
-		Collection<String> docs = new LinkedList<String>();
+	private static Collection<String> getDocumentation(XMLObject xml) throws XMLException {
+		Collection<String> docs = new LinkedList<>();
 		XMLArray array = xml.getXMLArray(DOCUMENTATION_XML_TAG);
 		
 		for(int i=0; i<array.length();++i)

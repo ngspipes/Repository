@@ -116,7 +116,7 @@ public class LocalRepository extends Repository {
 
 		try{
 			JSONArray names = new JSONObject(toolsNames).getJSONArray(TOOLS_NAMES_KEY);
-			List<String> tools = new LinkedList<String>();
+			List<String> tools = new LinkedList<>();
 			for(int i=0; i<names.length(); ++i)
 				tools.add(names.getString(i));
 			
@@ -152,7 +152,7 @@ public class LocalRepository extends Repository {
 
 		try{
 			JSONArray names = new JSONObject(configuratorsNames).getJSONArray(CONFIGURATORS_NAMES_KEY);
-			List<String> configs = new LinkedList<String>();
+			List<String> configs = new LinkedList<>();
 			for(int i=0; i<names.length(); ++i)
 				configs.add(names.getString(i));
 			

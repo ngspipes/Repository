@@ -40,7 +40,7 @@ public class XMLCommandDescriptor extends CommandDescriptor{
 	private static final String PRIORITY_XML_TAG = "priority";
 
 	private static List<IArgumentDescriptor> getArguments(XMLObject xml) throws XMLException{
-		LinkedList<IArgumentDescriptor> arguments = new LinkedList<IArgumentDescriptor>();
+		LinkedList<IArgumentDescriptor> arguments = new LinkedList<>();
 		XMLArray args = xml.getXMLArray(ARGUMENTS_XML_TAG);
 
 		for(int i=0; i<args.length(); ++i)
@@ -50,7 +50,7 @@ public class XMLCommandDescriptor extends CommandDescriptor{
 	}
 
 	private static List<IOutputDescriptor> getOutputs(XMLObject xml) throws XMLException{
-		LinkedList<IOutputDescriptor> outputs = new LinkedList<IOutputDescriptor>();
+		LinkedList<IOutputDescriptor> outputs = new LinkedList<>();
 		XMLArray otps = xml.getXMLArray(OUTPUTS_XML_TAG);
 
 		for(int i=0; i<otps.length(); ++i)

@@ -19,16 +19,15 @@
  */
 package support.descriptors.json;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
+import descriptors.ICommandDescriptor;
+import descriptors.ToolDescriptor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import descriptors.ICommandDescriptor;
-import descriptors.ToolDescriptor;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 public class JSONToolDescriptor extends ToolDescriptor {
 
@@ -50,8 +49,8 @@ public class JSONToolDescriptor extends ToolDescriptor {
 		return commands;
 	}
 	
-	private static final Collection<String> getDocumentation(JSONObject json) throws JSONException {
-		Collection<String> docs = new LinkedList<String>();
+	private static Collection<String> getDocumentation(JSONObject json) throws JSONException {
+		Collection<String> docs = new LinkedList<>();
 		JSONArray array = json.getJSONArray(DOCUMENTATION_JSON_KEY);
 		
 		for(int i=0; i<array.length();++i)
