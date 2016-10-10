@@ -32,14 +32,16 @@ public class ArgumentDescriptor implements IArgumentDescriptor{
 	private final String description;
 	private final String type;
 	private final boolean required;
+	private final String argumentComposer;
 	private final int order;
 	
 	
-	public ArgumentDescriptor(String name, String description,  String type, boolean required, int order) {
+	public ArgumentDescriptor(String name, String description,  String type, boolean required, String argumentComposer, int order) {
 		this.name = name;
 		this.description = description;
 		this.type = type;
 		this.required = required;
+		this.argumentComposer = argumentComposer;
 		this.order = order;
 	}
 	
@@ -61,6 +63,14 @@ public class ArgumentDescriptor implements IArgumentDescriptor{
 	@Override
 	public String getDescription() {
 		return description;
+	}
+
+	@Override
+	public String getArgumentComposer() {
+		if (argumentComposer == null)
+			return originCommand.getArgumentsComposer();
+
+		return argumentComposer;
 	}
 	
 	public int getOrder(){

@@ -26,7 +26,7 @@ import repository.IRepository;
 
 public interface IToolDescriptor {
 
-String getName();
+	String getName();
 	
 	IRepository getOriginRepository();
 	
@@ -37,6 +37,8 @@ String getName();
 	String getVersion();
 	
 	int getRequiredMemory();
+
+	String getArgumentsComposer();
 	
 	Collection<String> getDocumentation();
 	

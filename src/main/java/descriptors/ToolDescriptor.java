@@ -35,6 +35,7 @@ public class ToolDescriptor implements IToolDescriptor {
 	
 	private final String name;
 	private final int requiredMemory;
+	private final String argumentsComposer;
 	private final String version;
 	private final String description;
 	private final String author; 
@@ -45,11 +46,12 @@ public class ToolDescriptor implements IToolDescriptor {
 	
 	
 	public ToolDescriptor(String name, int requiredMemory, String version, String description, String author,
-							Collection<String> documentation, List<ICommandDescriptor> commandsDescriptors) {
+							Collection<String> documentation, List<ICommandDescriptor> commandsDescriptors, String argumentsComposer) {
 		super();
 		this.name = name;
 		this.requiredMemory = requiredMemory;
 		this.version = version;
+		this.argumentsComposer = argumentsComposer;
 		this.description = description;
 		this.author = author;
 		this.documentation = documentation;
@@ -60,7 +62,6 @@ public class ToolDescriptor implements IToolDescriptor {
 			cmd.setOriginTool(this);
 			cmds.put(cmd.getName(), cmd);
 		}
-
 	}
 	
 	@Override
@@ -72,6 +73,9 @@ public class ToolDescriptor implements IToolDescriptor {
 	public int getRequiredMemory() {
 		return requiredMemory;
 	}
+
+	@Override
+	public String getArgumentsComposer() { return argumentsComposer; }
 
 	@Override
 	public String getVersion() {

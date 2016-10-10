@@ -92,9 +92,13 @@ public class CommandDescriptor implements ICommandDescriptor{
 	
 	@Override
 	public String getArgumentsComposer(){
+		if (argumentsComposer == null)
+			return originTool.getArgumentsComposer();
+
 		return argumentsComposer;
 	}
-	
+
+
 	@Override
 	public IArgumentDescriptor getArgument(String argumentName) {
 		return args.get(argumentName);

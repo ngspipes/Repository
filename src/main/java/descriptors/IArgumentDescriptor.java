@@ -33,6 +33,8 @@ public interface IArgumentDescriptor {
 
 	String getDescription();
 
+	String getArgumentComposer();
+
 	int getOrder();
 	
 }
