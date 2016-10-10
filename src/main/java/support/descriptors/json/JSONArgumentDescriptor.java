@@ -30,15 +30,26 @@ public class JSONArgumentDescriptor extends ArgumentDescriptor{
 	public static final String TYPE_JSON_KEY = "argumentType";
 	public static final String REQUIRED_JSON_KEY = "isRequired";
 	private static final String DESCRIPTION_JSON_KEY = "description";
+	private static final String ARGUMENTS_COMPOSER_JSON_KEY = "argumentsComposer";
+
+	private static String getArgumentComposer(JSONObject json) throws JSONException {
+		if(json.has(ARGUMENTS_COMPOSER_JSON_KEY))
+			return json.getString(ARGUMENTS_COMPOSER_JSON_KEY);
+		return null;
+	}
+
+
 
 	protected final JSONObject json;
+
 
 	public JSONArgumentDescriptor(String jsonContent, int order) throws JSONException{
 		this(new JSONObject(jsonContent), order);
 	}
 
 	public JSONArgumentDescriptor(JSONObject json, int order) throws JSONException{
-		super(json.getString(NAME_JSON_KEY), json.getString(DESCRIPTION_JSON_KEY), json.getString(TYPE_JSON_KEY), json.getBoolean(REQUIRED_JSON_KEY), order);
+		super(json.getString(NAME_JSON_KEY), json.getString(DESCRIPTION_JSON_KEY), json.getString(TYPE_JSON_KEY),
+				json.getBoolean(REQUIRED_JSON_KEY), getArgumentComposer(json), order);
 		this.json = json;
 	}
 

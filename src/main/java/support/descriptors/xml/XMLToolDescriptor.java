@@ -38,7 +38,14 @@ public class XMLToolDescriptor extends ToolDescriptor{
 	private static final String DESCRIPTION_XML_TAG = "description";
 	private static final String DOCUMENTATION_XML_TAG = "documentation";
 	public static final String COMMANDS_XML_TAG = "commands";
-	
+	private static final String ARGUMENTS_COMPOSER_XML_TAG = "argumentsComposer";
+	private static final String DEFAULT_ARGUMENT_COMPOSER = "name_values_separated_by_equal";
+
+	private static String getArgumentComposer(XMLObject xml) throws XMLException {
+		if(xml.has(ARGUMENTS_COMPOSER_XML_TAG))
+			return xml.getString(ARGUMENTS_COMPOSER_XML_TAG);
+		return DEFAULT_ARGUMENT_COMPOSER;
+	}
 
 	private static List<ICommandDescriptor> getCommands(XMLObject xml)throws XMLException{
 		List<ICommandDescriptor> commands = new LinkedList<>();
@@ -73,7 +80,7 @@ public class XMLToolDescriptor extends ToolDescriptor{
 	protected XMLToolDescriptor(XMLObject xml, List<ICommandDescriptor> commands) throws XMLException{
 		super(xml.getString(NAME_XML_TAG), xml.getInt(REQUIRED_MEMORY_XML_TAG), 
 				xml.getString(VERSION_XML_TAG), xml.getString(DESCRIPTION_XML_TAG), xml.getString(AUTHOR_XML_TAG),
-				getDocumentation(xml), commands);
+				getDocumentation(xml), commands, getArgumentComposer(xml));
 		this.xml = xml;
 	}
 

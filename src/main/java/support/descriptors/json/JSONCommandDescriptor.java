@@ -59,6 +59,14 @@ public class JSONCommandDescriptor extends CommandDescriptor{
 		return outputs;
 	}
 
+	private static String getArgumentComposer(JSONObject json) throws JSONException {
+		if(json.has(ARGUMENTS_COMPOSER_JSON_KEY))
+			return json.getString(ARGUMENTS_COMPOSER_JSON_KEY);
+		return null;
+	}
+
+
+
 	protected final JSONObject json;
 
 	public JSONCommandDescriptor(String jsonContent) throws JSONException{
@@ -71,7 +79,7 @@ public class JSONCommandDescriptor extends CommandDescriptor{
 
 	protected JSONCommandDescriptor(JSONObject json, List<IArgumentDescriptor> args, List<IOutputDescriptor> outputs) throws JSONException{
 		super(json.getString(NAME_JSON_KEY), json.getString(COMMAND_JSON_KEY),json.getString(DESCRIPTION_JSON_KEY), 
-				json.getString(ARGUMENTS_COMPOSER_JSON_KEY), args, outputs, json.getInt(PRIORITY_JSON_KEY));
+				getArgumentComposer(json), args, outputs, json.getInt(PRIORITY_JSON_KEY));
 		this.json = json;
 	}
 

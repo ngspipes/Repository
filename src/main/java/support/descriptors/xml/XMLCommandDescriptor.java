@@ -59,6 +59,12 @@ public class XMLCommandDescriptor extends CommandDescriptor{
 		return outputs;
 	}
 
+	private static String getArgumentComposer(XMLObject xml) throws XMLException {
+		if(xml.has(ARGUMENTS_COMPOSER_XML_TAG))
+			return xml.getString(ARGUMENTS_COMPOSER_XML_TAG);
+		return null;
+	}
+
 	protected final XMLObject xml;
 
 	public XMLCommandDescriptor(XMLObject xml) throws XMLException {
@@ -71,7 +77,7 @@ public class XMLCommandDescriptor extends CommandDescriptor{
 
 	protected XMLCommandDescriptor(XMLObject xml, List<IArgumentDescriptor> args, List<IOutputDescriptor> outputs) throws XMLException{
 		super(xml.getString(NAME_XML_TAG), xml.getString(COMMAND_XML_TAG),
-				xml.getString(DESCRIPTION_XML_TAG), xml.getString(ARGUMENTS_COMPOSER_XML_TAG), args, outputs, xml.getInt(PRIORITY_XML_TAG));
+				xml.getString(DESCRIPTION_XML_TAG), getArgumentComposer(xml), args, outputs, xml.getInt(PRIORITY_XML_TAG));
 		this.xml = xml;
 	}
 

@@ -38,6 +38,8 @@ public class JSONToolDescriptor extends ToolDescriptor {
 	private static final String AUTHOR_JSON_KEY = "author";
 	private static final String DOCUMENTATION_JSON_KEY = "documentation";
 	public static final String COMMANDS_JSON_KEY = "commands";
+	private static final String ARGUMENTS_COMPOSER_JSON_KEY = "argumentsComposer";
+	private static final String DEFAULT_ARGUMENT_COMPOSER = "name_values_separated_by_equal";
 
 	private static List<ICommandDescriptor> getCommands(JSONObject json)throws JSONException{
 		List<ICommandDescriptor> commands = new LinkedList<>();
@@ -59,6 +61,12 @@ public class JSONToolDescriptor extends ToolDescriptor {
 		return docs;
 	}
 
+	private static String getArgumentComposer(JSONObject json) throws JSONException {
+		if(json.has(ARGUMENTS_COMPOSER_JSON_KEY))
+			return json.getString(ARGUMENTS_COMPOSER_JSON_KEY);
+		return DEFAULT_ARGUMENT_COMPOSER;
+	}
+
 	protected final JSONObject json;
 
 	public JSONToolDescriptor(String jsonContent) throws JSONException{
@@ -72,7 +80,7 @@ public class JSONToolDescriptor extends ToolDescriptor {
 	protected JSONToolDescriptor(JSONObject json, List<ICommandDescriptor> commands) throws JSONException{
 		super(json.getString(NAME_JSON_KEY), json.getInt(REQUIRED_MEMORY_JSON_KEY), 
 				json.getString(VERSION_JSON_KEY), json.getString(DESCRIPTION_JSON_KEY), json.getString(AUTHOR_JSON_KEY),
-				getDocumentation(json), commands);
+				getDocumentation(json), commands, getArgumentComposer(json));
 		
 		this.json = json;
 	}

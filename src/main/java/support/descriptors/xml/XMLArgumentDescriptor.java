@@ -29,11 +29,20 @@ public class XMLArgumentDescriptor extends ArgumentDescriptor{
 	public static final String TYPE_XML_TAG = "argumentType";
 	public static final String REQUIRED_XML_TAG = "isRequired";
 	private static final String DESCRIPTION_XML_TAG = "description";
+	private static final String ARGUMENTS_COMPOSER_XML_TAG = "argumentsComposer";
+
+	private static String getArgumentComposer(XMLObject xml) throws XMLException {
+		if(xml.has(ARGUMENTS_COMPOSER_XML_TAG))
+			return xml.getString(ARGUMENTS_COMPOSER_XML_TAG);
+		return null;
+	}
+
 
 	protected final XMLObject xml;
 
 	public XMLArgumentDescriptor(XMLObject xml, int order) throws XMLException{
-		super(xml.getString(NAME_XML_TAG), xml.getString(DESCRIPTION_XML_TAG), xml.getString(TYPE_XML_TAG), xml.getBoolean(REQUIRED_XML_TAG), order);
+		super(xml.getString(NAME_XML_TAG), xml.getString(DESCRIPTION_XML_TAG), xml.getString(TYPE_XML_TAG),
+				xml.getBoolean(REQUIRED_XML_TAG), getArgumentComposer(xml), order);
 		this.xml = xml;
 	}
 
