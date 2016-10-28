@@ -114,7 +114,12 @@ public class UriBasedRepository extends Repository {
 		String logoUri = this.location + "/" + toolName + "/logo";
 		try {
 			HttpURLConnection connection = getConnection(logoUri);
-			return readStream(connection);
+			String logo = readStream(connection);
+
+			if(logo == null || logo.isEmpty())
+				return null;
+
+			return logo;
 		} catch (Exception e) {
 			throw new RepositoryException("Error loading objects", e);
 		}

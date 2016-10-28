@@ -75,15 +75,16 @@ public class GithubRepository extends Repository {
 	@Override
 	protected String loadToolLogo(String toolName) throws RepositoryException {
 		String location = this.connectionUri + "/" + toolName + "/" + LOGO_FILE_NAME;
+		return existsLogo(location)? location : null;
+	}
 
+	private boolean existsLogo(String location) throws RepositoryException {
 		try{
 			URL url = new URL(location);
 			HttpURLConnection huc =  (HttpURLConnection)  url.openConnection();
 			huc.setRequestMethod("HEAD");
 
-			huc.connect();
-
-			return (huc.getResponseCode() != HttpURLConnection.HTTP_OK) ? null : location;
+			return huc.getResponseCode() == HttpURLConnection.HTTP_OK;
 		}catch(IOException e){
 			throw new RepositoryException("Error checking tool logo", e);
 		}
