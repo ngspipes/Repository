@@ -19,14 +19,16 @@
  */
 package repository;
 
-import java.net.HttpURLConnection;
-import java.util.Collection;
-
-import repository.UriBasedRepository.IFactory;
-import support.Support;
 import configurators.IConfigurator;
 import descriptors.IToolDescriptor;
 import exceptions.RepositoryException;
+import repository.UriBasedRepository.IFactory;
+import support.Support;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Collection;
 
 public class GithubRepository extends Repository {
 	
@@ -72,7 +74,19 @@ public class GithubRepository extends Repository {
 	
 	@Override
 	protected String loadToolLogo(String toolName) throws RepositoryException {
-		return this.connectionUri + "/" + toolName + "/" + LOGO_FILE_NAME;
+		String location = this.connectionUri + "/" + toolName + "/" + LOGO_FILE_NAME;
+
+		try{
+			URL url = new URL(location);
+			HttpURLConnection huc =  (HttpURLConnection)  url.openConnection();
+			huc.setRequestMethod("HEAD");
+
+			huc.connect();
+
+			return (huc.getResponseCode() != HttpURLConnection.HTTP_OK) ? null : location;
+		}catch(IOException e){
+			throw new RepositoryException("Error checking tool logo", e);
+		}
 	}
 
 	@Override
